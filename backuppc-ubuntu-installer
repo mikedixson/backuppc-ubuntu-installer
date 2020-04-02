@@ -3,9 +3,11 @@ set -e
 
 if [[ $1 == "install" || $1 == "upgrade" ]]; then
   ACTION=$1
+elif [[ $2 == "" ]]; then
+  ACTION=install
 else
   echo "usage: $(basename $0) action [source]"
-  echo "action is either install or upgrade"
+  echo "action is either install (default) or upgrade"
   echo "source is either tar (default) or git"
   exit 1
 fi

@@ -43,7 +43,9 @@ echo "backuppc:$PASSWORD" | sudo chpasswd backuppc
 mkdir -p /var/lib/backuppc/.ssh
 chmod 700 /var/lib/backuppc/.ssh
 echo -e "BatchMode yes\nStrictHostKeyChecking no" > /var/lib/backuppc/.ssh/config
-ssh-keygen -q -t rsa -b 4096 -N '' -C "BackupPC key" -f /var/lib/backuppc/.ssh/id_rsa
+if [[ ! -e /var/lib/backuppc/.ssh/id_rsa ]]; then
+  ssh-keygen -q -t rsa -b 4096 -N '' -C "BackupPC key" -f /var/lib/backuppc/.ssh/id_rsa
+fi
 chmod 600 /var/lib/backuppc/.ssh/id_rsa
 chmod 644 /var/lib/backuppc/.ssh/id_rsa.pub
 chown -R backuppc:backuppc /var/lib/backuppc/.ssh

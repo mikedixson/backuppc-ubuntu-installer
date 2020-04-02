@@ -3,7 +3,7 @@ set -e
 
 if [[ $1 == "install" || $1 == "upgrade" ]]; then
   ACTION=$1
-elif [[ $2 == "" ]]; then
+elif [[ $1 == "" ]]; then
   ACTION=install
 else
   echo "usage: $(basename $0) action [source]"

@@ -130,3 +130,8 @@ sed -i "s/$Conf{CgiAdminUsers}.*/$Conf{CgiAdminUsers} = 'backuppc';/" /etc/Backu
 chown -R backuppc:backuppc /etc/BackupPC
 echo $PASSWORD | htpasswd -i /etc/BackupPC/BackupPC.users backuppc
 service backuppc start
+
+# Clean up
+rm -rf BackupPC* rsync-bpc*
+echo "All done!"
+exit 0

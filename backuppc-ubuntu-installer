@@ -60,6 +60,9 @@ bpcver=$(get_latest_release "backuppc/backuppc")
 bpcxsver=$(get_latest_release "backuppc/backuppc-xs")
 rsyncbpcver=$(get_latest_release "backuppc/rsync-bpc")
 
+mkdir -p /tmp/bpc
+cd /tmp/bpc
+
 if [[ $SOURCE == "tar" ]]; then
   # Fetch and install latest stable releases
   wget https://github.com/backuppc/backuppc-xs/releases/download/$bpcxsver/BackupPC-XS-$bpcxsver.tar.gz
@@ -136,6 +139,7 @@ echo $PASSWORD | htpasswd -i /etc/BackupPC/BackupPC.users backuppc
 service backuppc start
 
 # Clean up
-rm -rf BackupPC* rsync-bpc*
+cd
+rm -rf /tmp/bpc
 echo "All done!"
 exit 0

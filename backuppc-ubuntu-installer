@@ -116,9 +116,7 @@ fi
 # provided by apache to fail. There are alternatives if you don't want to change the apache
 # user: use SCGI or a setuid BackupPC_Admin script - see the docs.
 cp httpd/BackupPC.conf /etc/apache2/conf-available/backuppc.conf
-sed -i "/deny\ from\ all/d" /etc/apache2/conf-available/backuppc.conf
-sed -i "/deny\,allow/d" /etc/apache2/conf-available/backuppc.conf
-sed -i "/allow\ from/d" /etc/apache2/conf-available/backuppc.conf
+sed -i "/Require local/d" /etc/apache2/conf-available/backuppc.conf
 sed -i "s/export APACHE_RUN_USER=www-data/export APACHE_RUN_USER=backuppc/" /etc/apache2/envvars
 sed -i "s/export APACHE_RUN_GROUP=www-data/export APACHE_RUN_GROUP=backuppc/" /etc/apache2/envvars
 echo '<html><head><meta http-equiv="refresh" content="0; url=/BackupPC_Admin"></head></html>' > /var/www/html/index.html

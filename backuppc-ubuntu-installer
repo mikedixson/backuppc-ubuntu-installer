@@ -24,7 +24,7 @@ fi
 # Install dependencies
 apt-get -q update
 apt-get -q -y upgrade
-apt-get install -q -y apache2 apache2-utils libapache2-mod-perl2 par2 perl smbclient rsync tar gcc zlib1g zlib1g-dev libapache2-mod-scgi rrdtool git make perl-doc libarchive-zip-perl libfile-listing-perl libxml-rss-perl libcgi-session-perl libacl1-dev curl pwgen
+apt-get install -q -y apache2 apache2-utils libapache2-mod-perl2 par2 perl smbclient rsync tar gcc zlib1g zlib1g-dev rrdtool git make perl-doc libarchive-zip-perl libfile-listing-perl libxml-rss-perl libcgi-session-perl libacl1-dev curl pwgen
 
 # Set password or read password file
 if [[ -e password ]]; then

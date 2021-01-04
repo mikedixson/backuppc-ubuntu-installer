@@ -36,10 +36,6 @@ echo "$PASSWORD" > /root/password
 chmod 600 /root/password
 
 # Set up backuppc user and directory
-mkdir -p /srv/backuppc
-if [[ ! -e /var/lib/backuppc ]]; then
-  ln -s /srv/backuppc/ /var/lib/backuppc
-fi
 adduser --system --home /var/lib/backuppc --group --disabled-password --shell /bin/false backuppc
 echo "backuppc:$PASSWORD" | sudo chpasswd backuppc
 mkdir -p /var/lib/backuppc/.ssh
